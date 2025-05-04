@@ -5,18 +5,21 @@ import '../widgets/slider_widget.dart';
 import '../models/game.dart';
 import 'package:provider/provider.dart';
 
+// Aquesta classe representa la vista principal del joc, on es mostra el número a endevinar i el control lliscant.
 class ContentView extends StatelessWidget {
-  const ContentView({super.key});
+  const ContentView({super.key}); // Constructor de la classe ContentView
 
   @override
   Widget build(BuildContext context) {
-    final vm = context.watch<ViewModel>();
+    final vm = context.watch<ViewModel>(); // Obtenim el ViewModel
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        // Emogi de la diana
         Text('🎯', style: Theme.of(context).textTheme.displaySmall),
         const SizedBox(height: 8),
+        // Text que mostra el número a endevinar
         Text('${vm.game.target}',
             style: Theme.of(context).textTheme.titleLarge),
         Padding(
@@ -28,6 +31,7 @@ class ContentView extends StatelessWidget {
             max: Game.maxValue.toDouble(),
           ),
         ),
+        // Text que mostra el número seleccionat pel jugador
         ElevatedButton(
           onPressed: vm.tryHit,
           style: ElevatedButton.styleFrom(

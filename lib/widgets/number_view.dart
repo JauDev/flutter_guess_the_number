@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../themes/app_colors.dart';
 
+// Aquesta classe representa un widget que mostra un número amb una etiqueta associada.
 class NumberView extends StatelessWidget {
   final String label;
   final int value;

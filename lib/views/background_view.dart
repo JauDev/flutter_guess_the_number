@@ -5,18 +5,20 @@ import '../widgets/rounded_view.dart';
 import '../widgets/number_view.dart';
 import 'marks_view.dart';
 
+// Aquesta classe representa la vista de fons del joc, que conté els botons i la puntuació
 class BackgroundView extends StatelessWidget {
-  const BackgroundView({super.key});
+  const BackgroundView({super.key}); // Constructor de la classe BackgroundView
 
   @override
   Widget build(BuildContext context) {
-    final vm   = context.watch<ViewModel>();
-    final game = vm.game;
+    final vm   = context.watch<ViewModel>(); // Obtenim el ViewModel
+    final game = vm.game; // Obtenim el joc del ViewModel
 
-    final double topPadding = MediaQuery.of(context).padding.top;
+    final double topPadding = MediaQuery.of(context).padding.top; // Afegeix un padding superior igual al de la barra d'estat del dispositiu
 
     return Stack(
       children: [
+        // Botó per reiniciar el joc
         Positioned(
           top: topPadding + 12,
           left: 12,
@@ -26,6 +28,7 @@ class BackgroundView extends StatelessWidget {
           ),
         ),
 
+        // Botó per mostrar la llista de marques
         Positioned(
           top: topPadding + 12,
           right: 12,
@@ -38,12 +41,14 @@ class BackgroundView extends StatelessWidget {
           ),
         ),
 
+        // Botó per mostrar la puntuació
         Positioned(
           bottom: 24,
           left: 16,
           child: NumberView(label: 'SCORE', value: game.score),
         ),
 
+        // Botó per mostrar la ronda actual
         Positioned(
           bottom: 24,
           right: 16,

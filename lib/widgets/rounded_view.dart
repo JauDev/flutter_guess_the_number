@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Aquesta classe representa una vista arrodonida amb un icona i una acció de toc opcional.
 class RoundedView extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onTap;

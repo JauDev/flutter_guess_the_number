@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Aquesta classe representa un widget de control deslizante que permet a l'usuari seleccionar un valor dins d'un rang especificat.
 class SliderWidget extends StatelessWidget {
   final double value;
   final ValueChanged<double> onChanged;

@@ -7,8 +7,9 @@ import 'views/content_view.dart';
 
 void main() => runApp(const MainApp());
 
+// Funció principal que inicia l'aplicació
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  const MainApp({super.key}); // Constructor de la classe MainApp
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,8 @@ class MainApp extends StatelessWidget {
       create: (_) => ViewModel(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Guess the Number',
-        theme: ThemeData(
+        title: 'Guess the Number', // Títol de l'aplicació
+        theme: ThemeData( // Tema de l'aplicació
           scaffoldBackgroundColor: AppColors.backgroundColor,
           textTheme: const TextTheme(
             displaySmall: TextStyle(
@@ -34,7 +35,7 @@ class MainApp extends StatelessWidget {
         home: const Scaffold(
           body: Stack(
             children: [
-              BackgroundView(),
+              BackgroundView(), // Vista de fons que conté els botons i la puntuació
               Center(child: ContentView()),
             ],
           ),
