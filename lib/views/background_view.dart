@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
-import '../themes/app_colors.dart';
+import '../controllers/view_model.dart';
 import '../widgets/rounded_view.dart';
 import '../widgets/number_view.dart';
-import '../controllers/view_model.dart';
-import 'package:provider/provider.dart';
 import 'marks_view.dart';
+import 'package:provider/provider.dart';
 
 class BackgroundView extends StatelessWidget {
   const BackgroundView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final game = context.watch<ViewModel>().game;
+    final vm = context.watch<ViewModel>();
+    final game = vm.game;
+
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        const Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
-            RoundedView(icon: Icons.refresh),
-            RoundedView(icon: Icons.list),
-            RoundedView(icon: Icons.play_arrow),
+          children: [
+            RoundedView(
+              icon: Icons.refresh,
+              onTap: vm.restart,
+            ),
+            RoundedView(
+              icon: Icons.list,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const MarksView()),
+              ),
+            ),
+            RoundedView(
+              icon: Icons.play_arrow,
+              onTap: vm.tryHit,
+            ),
           ],
         ),
         const Spacer(),
@@ -29,15 +42,9 @@ class BackgroundView extends StatelessWidget {
           children: [
             NumberView(label: 'SCORE', value: game.score),
             NumberView(label: 'ROUND', value: game.round),
-            TextButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const MarksView()),
-              ),
-              child: const RoundedView(icon: Icons.list),
-            ),
           ],
         ),
+        const SizedBox(height: 24),
       ],
     );
   }

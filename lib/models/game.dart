@@ -10,10 +10,10 @@ class Game {
   int _score = 0;
   int _round = 1;
 
-  int get target => _target;
+  int get target     => _target;
   int get lastPoints => _lastPoints;
-  int get score => _score;
-  int get round => _round;
+  int get score      => _score;
+  int get round      => _round;
 
   Game() { _nextTarget(); }
 
@@ -24,8 +24,6 @@ class Game {
     _round += 1;
     _nextTarget();
   }
-
-  void resetRound() => _nextTarget();
 
   void restart() {
     _score = 0;

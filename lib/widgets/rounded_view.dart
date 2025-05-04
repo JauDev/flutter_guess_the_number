@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 
 class RoundedView extends StatelessWidget {
   final IconData icon;
-  const RoundedView({super.key, required this.icon});
+  final VoidCallback? onTap;
+  const RoundedView({super.key, required this.icon, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 56,
-      height: 56,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(color: Theme.of(context).colorScheme.onSurface),
+    final child = Icon(icon, size: 28);
+    return InkWell(
+      borderRadius: BorderRadius.circular(28),
+      onTap: onTap,
+      child: Container(
+        width: 56,
+        height: 56,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: Theme.of(context).colorScheme.onSurface),
+        ),
+        child: child,
       ),
-      child: Icon(icon, size: 48),
     );
   }
 }

@@ -1,3 +1,10 @@
+import 'package:flutter/material.dart';
+import '../controllers/view_model.dart';
+import '../themes/app_colors.dart';
+import '../widgets/slider_widget.dart';
+import '../models/game.dart';
+import 'package:provider/provider.dart';
+
 class ContentView extends StatelessWidget {
   const ContentView({super.key});
 
@@ -9,9 +16,11 @@ class ContentView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('🎯', style: Theme.of(context).textTheme.displaySmall),
-        Text('${vm.game.target}', style: Theme.of(context).textTheme.titleLarge),
+        const SizedBox(height: 8),
+        Text('${vm.game.target}',
+            style: Theme.of(context).textTheme.titleLarge),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           child: SliderWidget(
             value: vm.sliderValue,
             onChanged: vm.onSliderChanged,
@@ -23,11 +32,11 @@ class ContentView extends StatelessWidget {
           onPressed: vm.tryHit,
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(21),
-            ),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
           ),
-          child: const Text('TRY', style: TextStyle(color: Colors.white)),
+          child:
+              const Text('TRY', style: TextStyle(color: Colors.white)),
         ),
       ],
     );

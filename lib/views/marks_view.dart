@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../themes/app_colors.dart';
 import '../controllers/view_model.dart';
+import '../themes/app_colors.dart';
 import 'package:provider/provider.dart';
-import '../models/mark.dart';
 
 class MarksView extends StatelessWidget {
   const MarksView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final marks = context.watch<ViewModel>().marks; // Llista de Mark
+    final marks = context.watch<ViewModel>().marks;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Marks'),
-        backgroundColor: AppColors.backgroundColor,
+        backgroundColor: AppColors.primaryColor,
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(16),
+        itemCount: marks.length,
+        separatorBuilder: (_, __) => const Divider(),
         itemBuilder: (_, i) => ListTile(
           leading: const Icon(Icons.star),
           title: Text('${marks[i].points} points'),
-          subtitle: Text(DateFormat('dd/MM/yyyy HH:mm').format(marks[i].date)),
+          subtitle:
+              Text(DateFormat('dd/MM/yyyy – HH:mm').format(marks[i].date)),
         ),
-        separatorBuilder: (_, __) => const Divider(),
-        itemCount: marks.length,
       ),
     );
   }

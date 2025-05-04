@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'views/content_view.dart';
-import 'themes/app_colors.dart';
+import 'package:provider/provider.dart';
 import 'controllers/view_model.dart';
+import 'themes/app_colors.dart';
+import 'views/background_view.dart';
+import 'views/content_view.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+void main() => runApp(const MainApp());
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -20,9 +20,15 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.backgroundColor,
           textTheme: const TextTheme(
-            displaySmall:
-                TextStyle(fontSize: 36, fontWeight: FontWeight.bold, letterSpacing: -1),
-            titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            displaySmall: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+              letterSpacing: -1,
+            ),
+            titleLarge: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         home: const Scaffold(
@@ -37,4 +43,3 @@ class MainApp extends StatelessWidget {
     );
   }
 }
-

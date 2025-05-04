@@ -16,7 +16,7 @@ class NumberView extends StatelessWidget {
           height: 56,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: AppColors.primaryColor.withOpacity(.1),
+            color: AppColors.primaryColor.withOpacity(.15),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text('$value',
