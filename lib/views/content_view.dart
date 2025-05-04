@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'slider_widget.dart';
-import 'game.dart';
-import 'app_colors.dart';
+import '../widgets/slider_widget.dart';
+import '../models/game.dart';
+import '../themes/app_colors.dart';
 
 class ContentView extends StatefulWidget {
   const ContentView({super.key});
@@ -41,7 +41,9 @@ class _ContentViewState extends State<ContentView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Put the slider as close as you can to: ${_game.targetValue}",
+        Text("🎯🎯🎯🎯",
+            style: Theme.of(context).textTheme.titleLarge),
+        Text("${_game.targetValue}",
             style: Theme.of(context).textTheme.titleLarge),
         Padding(
           padding: const EdgeInsets.all(8.0),
